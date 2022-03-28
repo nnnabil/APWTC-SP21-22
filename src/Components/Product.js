@@ -1,9 +1,9 @@
 import React from "react"
-function Product(props){
+const Product = (props) =>{
     return(
-        <dive>
+        <div>
             <p>Product: <b>{props.name}</b> Price: <b>{props.price}</b></p>
-        </dive>
+        </div>
     )
 }
 export default Product; 
