@@ -13,6 +13,18 @@ import ProductDetail from './Components/ProductDetail';
 import ColorState from './Components/ColorState';
 import EffectHookCheck from './Components/EffectHookCheck';
 import AllPosts from './Components/AllPosts';
+import Login from './Components/Login';
+
+import APIProducts from './Components/APIProducts';
+import axios from 'axios';
+
+var token = null;
+if(localStorage.getItem('user')){
+  var obj = JSON.parse(localStorage.getItem('user'));
+  token = obj.access_token;
+}
+axios.defaults.baseURL="http://127.0.0.1:8000/api/";
+axios.defaults.headers.common["Authorization"] = token;
 
 
 ReactDOM.render(
@@ -41,6 +53,12 @@ ReactDOM.render(
         </Route>
         <Route exact path="/posts">
           <AllPosts/>
+        </Route>
+        <Route exact path="/login">
+          <Login/>
+        </Route>
+        <Route exact path="/allproducts">
+          <APIProducts/>
         </Route>
 
       </Switch>
